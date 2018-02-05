@@ -19,7 +19,7 @@ function buttonCopyClick(e){
  }
 
 function onShowTable(){
-	$("#tableSms>tbody>tr").append('<th class="sorting_disabled" tabindex="0" rowspan="1" colspan="1"><button class="btn">&nbsp;</button></th>');
+	$("#tableSms>tbody>tr").append('<th class="sorting_disabled" style="padding: 0;" tabindex="0" rowspan="1" colspan="1"><button class="btn" style="width: 96%; margin: 3px;">&nbsp;</button></th>');
 	$("#tableSms>tbody>tr>th>button").click(buttonCopyClick);
 }	
 
