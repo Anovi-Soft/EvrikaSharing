@@ -1,6 +1,7 @@
 function buttonCopyClick(e){
+	var btn = $(e.target);
 	e.stopPropagation();
-    var trBlock = $(e.target).parent().parent();
+    var trBlock = btn.parent().parent();
 	var text = trBlock.find(":nth-last-child(2)").html();
 	var re = /Код:\s(\d+)/;
 	var matches = text.match(re);
@@ -10,9 +11,12 @@ function buttonCopyClick(e){
 	copyTemp.val(code);
 	copyTemp.select();
 	try {
-    var successful = document.execCommand('copy');
-    var msg = successful ? 'successful' : 'unsuccessful';
-    console.log('Copying text command was ' + msg);
+		var successful = document.execCommand('copy');
+		if (!successful) return;
+		btn.css({ 'font-size': 0 });
+		btn.text(code);
+		btn.animate({fontSize: '12px'}, 200);
+		
 	} catch (err) {
     console.log('Oops, unable to copy');
   }
