@@ -1,4 +1,5 @@
 function tryGetOldList(){
+	if($("#diffs>ul")[0]) return;
 	$(".commit-stat-summary .dropdown-content ul").clone().insertAfter(".content-block.diff-files-changed");
 	$("#diffs ul li").each(function(ind, el){
 	  var linkEl = $(this).find("a");
